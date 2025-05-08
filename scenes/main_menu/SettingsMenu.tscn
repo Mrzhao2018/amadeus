@@ -1,0 +1,369 @@
+[gd_scene load_steps=2 format=3 uid="uid://bktbbyphne0tj"]
+
+[ext_resource type="Theme" uid="uid://bm2jxwtlo6fxg" path="res://ui/themes/MainTheme.tres" id="1_4m05s"]
+
+[node name="SettingsMenu" type="PanelContainer"]
+custom_minimum_size = Vector2(1200, 800)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4m05s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 3
+
+[node name="Title" type="Label" parent="VBoxContainer/MainVBox"]
+layout_mode = 2
+text = "设置"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MainVBox"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 0
+
+[node name="Graphics" type="ScrollContainer" parent="VBoxContainer/MainVBox/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="GraphicsMarginContainer" type="MarginContainer" parent="VBoxContainer/MainVBox/TabContainer/Graphics"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 150
+
+[node name="GraphicsGrid" type="GridContainer" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 40
+columns = 2
+
+[node name="ResolutionLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+text = "分辨率"
+
+[node name="ResolutionOption" type="OptionButton" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "1920 * 1080"
+popup/item_0/id = 0
+
+[node name="DisplayModeLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+text = "显示模式"
+
+[node name="DisplayModeOption" type="OptionButton" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "窗口化"
+popup/item_0/id = 0
+popup/item_1/text = "全屏"
+popup/item_1/id = 1
+popup/item_2/text = "无边框窗口"
+popup/item_2/id = 2
+
+[node name="VSyncLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+text = "垂直同步"
+
+[node name="VSyncCheckBox" type="CheckBox" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+size_flags_horizontal = 6
+button_pressed = true
+
+[node name="QualityLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+text = "画质预设"
+
+[node name="QualityOption" type="OptionButton" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "低"
+popup/item_0/id = 0
+popup/item_1/text = "中"
+popup/item_1/id = 1
+popup/item_2/text = "高"
+popup/item_2/id = 2
+
+[node name="ShadowQualityLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+text = "阴影质量"
+
+[node name="ShadowQualityOption" type="OptionButton" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "关闭"
+popup/item_0/id = 0
+popup/item_1/text = "低"
+popup/item_1/id = 1
+popup/item_2/text = "中"
+popup/item_2/id = 2
+popup/item_3/text = "高"
+popup/item_3/id = 3
+
+[node name="AALabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+text = "抗锯齿"
+
+[node name="AAOption" type="OptionButton" parent="VBoxContainer/MainVBox/TabContainer/Graphics/GraphicsMarginContainer/GraphicsGrid"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "关闭"
+popup/item_0/id = 0
+popup/item_1/text = "FXAA"
+popup/item_1/id = 1
+popup/item_2/text = "MSAA 2x"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA 4x"
+popup/item_3/id = 3
+
+[node name="Audio" type="ScrollContainer" parent="VBoxContainer/MainVBox/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MainVBox/TabContainer/Audio"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 40
+
+[node name="AudioVBox" type="VBoxContainer" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer"]
+layout_mode = 2
+
+[node name="MasterVolumeHBox" type="HBoxContainer" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox"]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/MasterVolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "主音量"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/MasterVolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+
+[node name="MasterValueLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/MasterVolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "100%"
+horizontal_alignment = 1
+
+[node name="MusicVolumeHBox" type="HBoxContainer" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/MusicVolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "音乐音量"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/MusicVolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+
+[node name="MusicValueLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/MusicVolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "100%"
+horizontal_alignment = 1
+
+[node name="SfxVolumeHBox" type="HBoxContainer" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox"]
+layout_mode = 2
+
+[node name="SfxLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/SfxVolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "效果音量"
+horizontal_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/SfxVolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+
+[node name="SfxValueLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/SfxVolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "100%"
+horizontal_alignment = 1
+
+[node name="MuteHBox" type="HBoxContainer" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox"]
+layout_mode = 2
+
+[node name="MuteLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/MuteHBox"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "全部静音"
+
+[node name="MuteCheckBox" type="CheckBox" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/MuteHBox"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="PositionLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Audio/MarginContainer/AudioVBox/MuteHBox"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Controls" type="ScrollContainer" parent="VBoxContainer/MainVBox/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ControlsMarginContainer" type="MarginContainer" parent="VBoxContainer/MainVBox/TabContainer/Controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 150
+
+[node name="ControlsVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer"]
+layout_mode = 2
+
+[node name="ControlsGrid" type="GridContainer" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 40
+columns = 2
+
+[node name="SensitivityLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/ControlsGrid"]
+layout_mode = 2
+text = "鼠标灵敏度"
+
+[node name="SensitivityHBox" type="HBoxContainer" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/ControlsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SensitivitySlider" type="HSlider" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/ControlsGrid/SensitivityHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 200.0
+value = 100.0
+
+[node name="SensitivityValueLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/ControlsGrid/SensitivityHBox"]
+layout_mode = 2
+text = "100"
+
+[node name="InvertMouseYLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/ControlsGrid"]
+layout_mode = 2
+text = "反转鼠标Y轴"
+
+[node name="InvertMouseYCheckBox" type="CheckBox" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/ControlsGrid"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RemapTitleLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "按键绑定"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer"]
+layout_mode = 2
+
+[node name="RemapGridContainer" type="GridContainer" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="MoveForwardLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/RemapGridContainer"]
+layout_mode = 2
+text = "向前移动"
+
+[node name="MoveForwardButton" type="Button" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/RemapGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "W"
+
+[node name="MoveBackLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/RemapGridContainer"]
+layout_mode = 2
+text = "向后移动"
+
+[node name="MoveBackButton" type="Button" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/RemapGridContainer"]
+layout_mode = 2
+text = "S"
+
+[node name="MoveLeftLabel2" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/RemapGridContainer"]
+layout_mode = 2
+text = "向左移动"
+
+[node name="MoveLeftButton2" type="Button" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/RemapGridContainer"]
+layout_mode = 2
+text = "A"
+
+[node name="MoveRightLabel3" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/RemapGridContainer"]
+layout_mode = 2
+text = "向右移动"
+
+[node name="MoveRightButton3" type="Button" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/RemapGridContainer"]
+layout_mode = 2
+text = "D"
+
+[node name="InteractLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/RemapGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "互动"
+
+[node name="InteractButton" type="Button" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer/RemapGridContainer"]
+layout_mode = 2
+text = "E"
+
+[node name="RebindInfoLabel" type="Label" parent="VBoxContainer/MainVBox/TabContainer/Controls/ControlsMarginContainer/ControlsVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "点击按钮以重新绑定"
+
+[node name="ActionsHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="ApplyButton" type="Button" parent="VBoxContainer/ActionsHBox"]
+layout_mode = 2
+text = "应用"
+
+[node name="DefaultsButton" type="Button" parent="VBoxContainer/ActionsHBox"]
+layout_mode = 2
+text = "恢复默认"
+
+[node name="BackButton" type="Button" parent="VBoxContainer/ActionsHBox"]
+layout_mode = 2
+text = "返回"
