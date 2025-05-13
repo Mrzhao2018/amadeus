@@ -1,9 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dna46q6xqm7bv"]
+[gd_scene load_steps=22 format=3 uid="uid://dna46q6xqm7bv"]
 
 [ext_resource type="Theme" uid="uid://bm2jxwtlo6fxg" path="res://ui/themes/MainTheme.tres" id="1_qmweu"]
 [ext_resource type="Script" uid="uid://gcv10vtyyaj8" path="res://scripts/main_menu/main_menu.gd" id="2_f1mbi"]
 [ext_resource type="Texture2D" uid="uid://qqsh8qngkl03" path="res://assets/textures/background/background.png" id="3_oitky"]
 [ext_resource type="Texture2D" uid="uid://caojltn11gkm7" path="res://assets/textures/background/logo.png" id="4_wckin"]
+[ext_resource type="PackedScene" uid="uid://bktbbyphne0tj" path="res://scenes/main_menu/SettingsMenu.tscn" id="5_wckin"]
+[ext_resource type="PackedScene" uid="uid://dvbrm88bf5c8o" path="res://scenes/main_menu/AchievementMenu.tscn" id="6_arvcj"]
+[ext_resource type="PackedScene" uid="uid://bt02uji64m7iu" path="res://scenes/main_menu/LoadGameMenu.tscn" id="7_6k0m2"]
+[ext_resource type="AudioStream" uid="uid://cy6yp02dcq4mn" path="res://assets/sound/music/MainMenuBackground.mp3" id="8_arvcj"]
+[ext_resource type="AudioStream" uid="uid://dqgtrltsq1y86" path="res://assets/sound/sound_effect/ButtonHover.wav" id="8_qq55g"]
+[ext_resource type="AudioStream" uid="uid://cn84l1hqui1n" path="res://assets/sound/sound_effect/ButtonClick.wav" id="9_pkvjm"]
 
 [sub_resource type="Animation" id="Animation_ow34m"]
 length = 0.001
@@ -107,7 +113,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5),
@@ -120,6 +126,59 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_ucygd"),
 &"button_fade_in": SubResource("Animation_826wr")
+}
+
+[sub_resource type="Animation" id="Animation_pkvjm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6gdku"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qq55g"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gdku"]
+_data = {
+&"RESET": SubResource("Animation_pkvjm"),
+&"fade_in": SubResource("Animation_qq55g"),
+&"fade_out": SubResource("Animation_6gdku")
 }
 
 [node name="MainMenu" type="Control"]
@@ -196,7 +255,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_mipys")
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="VersionLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -207,4 +266,61 @@ offset_left = -629.0
 offset_top = -55.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Copyright: 栗悟饭与龟波功"
+text = "                         Version: 0.0.1
+Copyright: 栗悟饭与龟波功"
+
+[node name="SubMenuContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubMenuAnimationPlayer" type="AnimationPlayer" parent="SubMenuContainer"]
+
+[node name="SettingsMenu" parent="." instance=ExtResource("5_wckin")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1200.0
+offset_bottom = 800.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="AchievementMenu" parent="." instance=ExtResource("6_arvcj")]
+layout_mode = 0
+
+[node name="LoadGameMenu" parent="." instance=ExtResource("7_6k0m2")]
+layout_mode = 0
+
+[node name="TransitionRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TransitionAnimationPlayer" type="AnimationPlayer" parent="TransitionRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_6gdku")
+}
+
+[node name="AudioPlayers" type="Node" parent="."]
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer2D" parent="AudioPlayers"]
+stream = ExtResource("8_qq55g")
+volume_db = 1.0
+
+[node name="ButtonClickSound" type="AudioStreamPlayer2D" parent="AudioPlayers"]
+stream = ExtResource("9_pkvjm")
+volume_db = 1.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="AudioPlayers"]
+stream = ExtResource("8_arvcj")
+volume_db = 1.0
+autoplay = true
+bus = &"Music"

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dvbrm88bf5c8o"]
+
+[node name="AchievementMenu" type="PanelContainer"]

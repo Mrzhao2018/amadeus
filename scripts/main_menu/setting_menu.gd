@@ -4,11 +4,11 @@ signal closed
 
 const SETTINGS_FILE = "user://settings.cfg"
 const PREFERRED_RESOLUTIONS = [
-    Vector2i(1280, 720),
-    Vector2i(1600, 900),
-    Vector2i(1920, 1080),
-    Vector2i(2560, 1440),
-    Vector2i(3840, 2160) # 4K
+	Vector2i(1280, 720),
+	Vector2i(1600, 900),
+	Vector2i(1920, 1080),
+	Vector2i(2560, 1440),
+	Vector2i(3840, 2160) # 4K
 ]
 
 #region Node References

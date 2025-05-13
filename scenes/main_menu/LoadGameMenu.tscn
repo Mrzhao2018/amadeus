@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bt02uji64m7iu"]
+
+[node name="LoadGameMenu" type="PanelContainer"]
